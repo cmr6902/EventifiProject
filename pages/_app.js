@@ -5,9 +5,11 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
   * 
   {
+    font-family: "Kumbh Sans", sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 `
 
@@ -15,7 +17,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
         <Head>
-          <title>MVP Starter</title>
+          <title>Eventifi</title>
           <meta name='description' content='Put a description here about your app'/>
           <meta name='robots' content='index, follow'/>
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png"/>

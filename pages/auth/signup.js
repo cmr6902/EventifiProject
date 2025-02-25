@@ -62,6 +62,7 @@ const Signup = () => {
 }
 
 const Section = styled.section`
+  margin-top: 100px;
   display: flex;
 `;
 
