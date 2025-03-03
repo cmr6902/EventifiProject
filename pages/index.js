@@ -18,8 +18,6 @@ export default function Home() {
         <RotatingBar/>
         <Events/>
         <Footer />
-        <UserLocation />
-        <MapWithUserLocation />
     </>
   )
 }

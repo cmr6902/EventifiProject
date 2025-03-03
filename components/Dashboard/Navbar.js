@@ -5,7 +5,7 @@ import { logOut } from '@/backend/Auth';
 import { useStateContext } from '@/context/StateContext';
 import Home from '@/components/Dashboard/Home'
 const Navbar = () => {
-  const { setUser } = useStateContext()
+  const { user, setUser } = useStateContext()
 
   return (
     // {user ?} for when user is signed in
@@ -19,7 +19,21 @@ const Navbar = () => {
 
         {/* links */}
         <NavMenu>
+          {user ? (
+            <>
+            <NavItem>
+            <NavLink href="/">Home</NavLink>
+          </NavItem>
           <NavItem>
+            <NavLink href="/Services">Services</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/myEvents"> My Events</NavLink>
+          </NavItem>
+            </>
+          ):(
+            <>
+            <NavItem>
             <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem>
@@ -28,12 +42,20 @@ const Navbar = () => {
           <NavItem>
             <NavLink href="/Events">Events</NavLink>
           </NavItem>
+            </>
+          )}
         </NavMenu>
-
-        {/* signup login */}
         <NavLinks>
-          <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
-          <ButtonLink href="/auth/login">Login</ButtonLink>
+          {user ? ( //if logged in
+            <>
+              <LogoutButton onClick={() => logOut(setUser)}>Logout</LogoutButton>
+            </>
+          ) : ( // if not signed in
+            <>
+              <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
+              <ButtonLink href="/auth/login">Login</ButtonLink>
+            </>
+          )}
         </NavLinks>
       </NavContainer>
     </Nav>
@@ -115,5 +137,25 @@ const NavLinks = styled.div`
 display: flex;
 align-items: center;
 `
+
+const LogoutButton = styled.button`
+display: flex;
+align-items: center;
+background: orangered;
+color: white;
+padding: 10px 20px;
+border: none;
+text-decoration: none;
+border-radius: 10px;
+cursor: pointer;
+margin: 10px;
+font-size: 1rem;
+
+
+&:hover {
+  background: green;
+  transition: all 0.5s ease;
+}
+`;
 
 export default Navbar;

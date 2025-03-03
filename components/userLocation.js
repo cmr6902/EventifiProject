@@ -26,7 +26,7 @@ export default function UserLocation() {
 
   return (
     <div>
-      <h2>User Location</h2>
+      <h2>Your Location</h2>
       {location ? (
         <p>Latitude: {location.lat}, Longitude: {location.lng}</p>
       ) : error ? (

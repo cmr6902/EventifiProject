@@ -5,7 +5,7 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
-  height: "400px",
+  height: "300px",
 };
 
 export default function MapWithUserLocation() {
@@ -29,7 +29,7 @@ export default function MapWithUserLocation() {
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={location || { lat: 37.7749, lng: -122.4194 }} // Default SF
+        center={location || { lat: 37.7749, lng: -122.4194 }} // defult
         zoom={12}
       >
         {location && <Marker position={location} />}

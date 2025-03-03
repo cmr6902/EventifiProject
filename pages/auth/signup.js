@@ -35,7 +35,7 @@ const Signup = () => {
 
     try {
       await register(email, password, setUser)
-      router.push('/dashboard')
+      router.push('/')
     } catch (err) {
       console.log('Error Signing Up', err)
     }
@@ -63,35 +63,66 @@ const Signup = () => {
 
 const Section = styled.section`
   margin-top: 100px;
-  display: flex;
-`;
+  justify-content: center;
+  display: grid;
+  background: #121212;
+  height: 1200px;
+  `;
 
 const Header = styled.h1`
-  font-size: 24px; /* Adjusted for better scalability */
+  font-size: 75px; /* Adjusted for better scalability */
+  color: white;
 `;
 
 const Input = styled.input`
-  font-size: 16px;
+  font-size: 30px;
 
 `;
 
 const InputTitle = styled.label` /* Changed to label for semantics */
-  font-size: 14px;
+  font-size: 30px;
+  color: white;
 `;
 
 const MainButton = styled.button`
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  background: orangered;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 5rem;
+  jusitfy-content: center;
 
-`;
+
+  &:hover {
+    background: green;
+    transition: all 0.5s ease;
+  }
+  `;
 
 const UserAgreementText = styled.p`
-  font-size: 12px;
+font-size: 12px;
+color: #666;
+margin-top: 20px;
+text-align: center;
 `;
 
 const UserAgreementSpan = styled(Link)` 
-  color: #007bff;
-
+color: #007bff;
+cursor: pointer;
+&:hover {
+  text-decoration: underline;
+}
+&:not(:last-of-type)::after {
+  content: ', '; /* Adds comma between links */
+}
 `;
+
 
 
 export default Signup

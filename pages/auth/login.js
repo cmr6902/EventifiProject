@@ -16,14 +16,12 @@ const Login = () => {
 
   async function handleLogin(){
     try {
-      const userData = await login(email, password); // Assuming login returns user data or a token
-      if (userData) {
-        setUser(userData); // Update global user state
-        router.push("/"); // Redirect after login
-      }
-    } catch (error) {
+      await login(email, password);
+      router.push("/");
+    } 
+    catch (error) {
       alert(error.message || "Login failed. Please try again.");
-    }
+  }
   }
 
 
@@ -48,28 +46,46 @@ const Login = () => {
 
 const Section = styled.section`
   margin-top: 100px;
-  display: flex;
+  justify-content: center;
+  display: grid;
+  background: #121212;
+  height: 1200px;
 `;
 
 const Header = styled.h1`
-  font-size: 24px; /* Adjusted for better scalability */
+  font-size: 75px; /* Adjusted for better scalability */
+  color: white;
 `;
 
 const Input = styled.input`
-  font-size: 16px;
+  font-size: 30px;
 
 `;
 
 const InputTitle = styled.label` /* Changed to label for semantics */
-  font-size: 14px;
-  color: #666;
+  font-size: 30px;
+  color: white;
 `;
 
 const MainButton = styled.button`
-  background-color: #007bff;
-  &:hover {
-    background-color: #0056b3;
-  }
+display: flex;
+align-items: center;
+background: orangered;
+color: white;
+padding: 10px 20px;
+border: none;
+text-decoration: none;
+border-radius: 10px;
+cursor: pointer;
+margin: 10px;
+font-size: 5rem;
+jusitfy-content: center;
+
+
+&:hover {
+  background: green;
+  transition: all 0.5s ease;
+}
 `;
 
 const UserAgreementText = styled.p`
