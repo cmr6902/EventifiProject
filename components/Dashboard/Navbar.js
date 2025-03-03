@@ -8,6 +8,7 @@ const Navbar = () => {
   const { setUser } = useStateContext()
 
   return (
+    // {user ?} for when user is signed in
     <Nav role="navigation" aria-label="Main Navigation">
       <NavContainer>
         {/* Logo with Logout Function */}

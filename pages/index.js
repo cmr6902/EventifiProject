@@ -5,6 +5,9 @@ import Footer from "@/components/LandingPage/Footer"
 import RotatingBar from "@/components/LandingPage/RotatingBar"
 import Services from "@/pages/Services"
 import Events from "@/pages/Events"
+import UserLocation from "@/components/UserLocation";
+import MapWithUserLocation from "@/components/MapWithUserLocation";
+
 export default function Home() {
   return (
     <>
@@ -15,6 +18,10 @@ export default function Home() {
         <RotatingBar/>
         <Events/>
         <Footer />
+        <UserLocation />
+        <MapWithUserLocation />
     </>
   )
 }
+
+

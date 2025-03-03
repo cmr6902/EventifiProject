@@ -5,6 +5,9 @@ import Navbar from '@/components/Dashboard/Navbar';
 
 const Services = () => {
   return (
+    <>
+    {/* <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script> */}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></link>
     <ServicesSection>
       <Navbar/>
       <Title>What Do We Do</Title>
@@ -34,6 +37,7 @@ const Services = () => {
         </Feature>
       </FeaturesContainer>
     </ServicesSection>
+    </>
   );
 };
 

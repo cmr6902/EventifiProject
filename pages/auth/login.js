@@ -15,7 +15,15 @@ const Login = () => {
 
 
   async function handleLogin(){
-
+    try {
+      const userData = await login(email, password); // Assuming login returns user data or a token
+      if (userData) {
+        setUser(userData); // Update global user state
+        router.push("/"); // Redirect after login
+      }
+    } catch (error) {
+      alert(error.message || "Login failed. Please try again.");
+    }
   }
 
 
