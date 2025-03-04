@@ -93,7 +93,7 @@ const MyEvents = () => {
 
 const Header = styled.h1`
 margin-bottom: 20px;
-color: orangered;
+color: red;
 `
 
 const Section = styled.section`
