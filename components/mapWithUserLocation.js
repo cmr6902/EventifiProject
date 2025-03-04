@@ -11,13 +11,12 @@ const containerStyle = {
 
 export default function MapWithUserLocation() {
   const [location, setLocation] = useState(null);
-  const [loading, setLoading] = useState(true); // Track loading state
-
+  const [loading, setLoading] = useState(true);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
 
-  // Get user's location
+  // user location
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -26,20 +25,20 @@ export default function MapWithUserLocation() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           });
-          setLoading(false); // Set loading to false once location is fetched
+          setLoading(false); 
         },
         (error) => {
           console.error("Geolocation error:", error);
-          setLoading(false); // Set loading to false if there's an error
+          setLoading(false); 
         }
       );
     } else {
       console.error("Geolocation is not supported by this browser.");
-      setLoading(false); // Set loading to false if geolocation isn't supported
+      setLoading(false);
     }
   }, []);
 
-  // Wait for Google Maps API and location to load
+  // loading map
   if (!isLoaded || loading) {
     return <div>Loading map...</div>;
   }
@@ -48,7 +47,7 @@ export default function MapWithUserLocation() {
     <div style={{ width: "100%", height: "300px" }}>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={location || { lat: 37.7749, lng: -122.4194 }} // Fallback to San Francisco
+        center={location || { lat: 37.7749, lng: -122.4194 }} //show random location(san fran)
         zoom={10}
       >
         {location && <Marker position={location} />}

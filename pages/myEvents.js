@@ -7,8 +7,8 @@ import { database } from '@/backend/Firebase';
 import Navbar from '@/components/Dashboard/Navbar';
 import styled from 'styled-components';
 import { postEvent } from '@/backend/actualEvents';
-// import userLocation from '@/components/userLocation';
-// import mapWithUserLocation from '@/components/mapWithUserLocation';
+import UserLocation from '@/components/userLocation';
+import MapWithUserLocation from '@/components/mapWithUserLocation';
 
 const MyEvents = () => {
   const { user } = useStateContext();
@@ -84,8 +84,8 @@ const MyEvents = () => {
           <p>No events posted yet.</p>
         )}
       </Section>
-      {/* <userLocation/>
-      <mapWithUserLocation/> */}
+      <UserLocation/>
+      <MapWithUserLocation/>
     </>
   );
 };

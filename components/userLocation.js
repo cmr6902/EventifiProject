@@ -8,9 +8,9 @@ import { styled } from "styled-components";
 export default function UserLocation() {
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Added loading state
+  const [loading, setLoading] = useState(true); 
 
-  // Get coordinates
+  // get cords
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -19,16 +19,16 @@ export default function UserLocation() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           });
-          setLoading(false); // Set loading to false once location is fetched
+          setLoading(false);
         },
         (error) => {
           setError(error.message);
-          setLoading(false); // Set loading to false in case of error
+          setLoading(false);
         }
       );
     } else {
       setError("Geolocation is not supported by this browser.");
-      setLoading(false); // Set loading to false if geolocation is not supported
+      setLoading(false); 
     }
   }, []);
 
@@ -36,13 +36,13 @@ export default function UserLocation() {
     <Section>
       <h2>Your Location</h2>
       {loading ? (
-        <p>Getting location...</p> // Show loading message while fetching
+        <p>Getting location...</p> // mesage while loading
       ) : error ? (
-        <p>Error: {error}</p> // Show error message if any
+        <p>Error: {error}</p> //if error
       ) : location ? (
-        <p>Latitude: {location.lat}, Longitude: {location.lng}</p> // Show location if available
+        <p>Latitude: {location.lat}, Longitude: {location.lng}</p> // location cords
       ) : (
-        <p>Unable to get location.</p> // Fallback message if no location
+        <p>Unable to get location.</p> //if cords failed
       )}
     </Section>
   );
