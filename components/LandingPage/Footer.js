@@ -23,7 +23,8 @@ const Footer = () => {
 };
 
 const FooterSection = styled.footer`
-
+color: orangered;
+background: black;
 `;
 
 const FooterContainer = styled.div`
@@ -44,7 +45,7 @@ const Link = styled.a`
 
 const SocialIcon = styled.a`
   color: #007bff;
-  padding: 20px;
+  padding: 30px;
   text-decoration: none;
   font-size: 1.5rem;
   &:hover {

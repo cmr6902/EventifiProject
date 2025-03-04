@@ -33,7 +33,7 @@ const MyEvents = () => {
   }, []);
   
   // event posting
-  const handleSubmit = async (e) => {
+  const eventPost = async (e) => {
     e.preventDefault();
     const userEmail = user.email || "Unknown user";
     
@@ -59,9 +59,9 @@ const MyEvents = () => {
     <>
       <Navbar/>
       <Section>
-        <h1> Current Events</h1>
+        <Header> Current Events</Header>
         {/* events for users only */}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={eventPost}>
           <input type="text" placeholder="Event Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
           <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
@@ -69,7 +69,7 @@ const MyEvents = () => {
           <button type="submit">Post Event</button>
         </form>
         {/* displaying events*/}
-        <h2>Upcoming Events</h2>
+        <Header>Upcoming Events</Header>
         {events.length > 0 ? (
           events.map(event => (
             <div key={event.id}>
@@ -77,7 +77,7 @@ const MyEvents = () => {
               <p>{event.description}</p>
               <p><strong>Date:</strong> {event.date}</p>
               <p><strong>Location:</strong> {event.location}</p>
-              <p><small>Posted by {event.userEmail}</small></p>
+              <p><small>Contact Info: {event.userEmail}</small></p>
             </div>
           ))
         ) : (
@@ -90,27 +90,30 @@ const MyEvents = () => {
   );
 };
 
+
+const Header = styled.h1`
+margin-bottom: 20px;
+color: orangered;
+`
+
 const Section = styled.section`
   padding-top: 100px; /* Adjust this value depending on the height of your navbar */
-  max-width: 800px;
+  max-width: auto;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  
-  h1, h2 {
-    margin-bottom: 20px;
-  }
-  
+  background: #121212;
   form {
     display: flex;
+    color: white;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 30px;
     
     input, textarea {
       padding: 10px;
-      border: 1px solid #ddd;
       border-radius: 4px;
+      background: white;
     }
     
     textarea {
@@ -127,6 +130,7 @@ const Section = styled.section`
       
       &:hover {
         background-color: green;
+        transition: all 0.5s ease;
       }
     }
   }
@@ -136,6 +140,8 @@ const Section = styled.section`
     padding: 15px;
     border: 1px solid #eee;
     border-radius: 8px;
+    background: white;
+    color: black;
     
     h3 {
       margin-top: 0;

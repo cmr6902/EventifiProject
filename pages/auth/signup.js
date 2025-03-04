@@ -62,14 +62,15 @@ const Signup = () => {
 }
 
 const Section = styled.section`
-  margin-top: 100px;
   justify-content: center;
   display: grid;
   background: #121212;
   height: 1200px;
   `;
 
+
 const Header = styled.h1`
+  margin-top: 100px;
   font-size: 75px; /* Adjusted for better scalability */
   color: white;
 `;
@@ -94,7 +95,7 @@ const MainButton = styled.button`
   text-decoration: none;
   border-radius: 10px;
   cursor: pointer;
-  margin: 10px;
+  // margin: 10px;
   font-size: 5rem;
   jusitfy-content: center;
 
@@ -107,20 +108,14 @@ const MainButton = styled.button`
 
 const UserAgreementText = styled.p`
 font-size: 12px;
-color: #666;
 margin-top: 20px;
+color: #666;
 text-align: center;
 `;
 
 const UserAgreementSpan = styled(Link)` 
 color: #007bff;
 cursor: pointer;
-&:hover {
-  text-decoration: underline;
-}
-&:not(:last-of-type)::after {
-  content: ', '; /* Adds comma between links */
-}
 `;
 
 

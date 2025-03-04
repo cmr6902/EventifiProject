@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { styled } from "styled-components";
 
 export default function UserLocation() {
   const [location, setLocation] = useState(null);
@@ -25,7 +26,8 @@ export default function UserLocation() {
   }, []);
 
   return (
-    <div>
+    // show cords
+    <Section>
       <h2>Your Location</h2>
       {location ? (
         <p>Latitude: {location.lat}, Longitude: {location.lng}</p>
@@ -34,6 +36,11 @@ export default function UserLocation() {
       ) : (
         <p>Getting location...</p>
       )}
-    </div>
+    </Section>
   );
 }
+
+const Section = styled.section`
+background: #121212;
+color: white;
+`

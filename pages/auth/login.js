@@ -45,7 +45,6 @@ const Login = () => {
 }
 
 const Section = styled.section`
-  margin-top: 100px;
   justify-content: center;
   display: grid;
   background: #121212;
@@ -55,6 +54,7 @@ const Section = styled.section`
 const Header = styled.h1`
   font-size: 75px; /* Adjusted for better scalability */
   color: white;
+  margin-top: 100px;
 `;
 
 const Input = styled.input`

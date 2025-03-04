@@ -9,10 +9,6 @@ export async function login(email, password){
     return signInWithEmailAndPassword(auth,email,password);
 }
 export async function logOut(setUser) {
-    try {
-        await signOut(auth);
-        setUser(null);
-    } catch (error) {
-        console.error("Logout failed:", error.message);
-    }
+    await signOut(auth);
+    setUser(null);
 }
