@@ -84,8 +84,8 @@ const MyEvents = () => {
           <p>No events posted yet.</p>
         )}
       </Section>
-      <UserLocation/>
-      <MapWithUserLocation/>
+      {/* <UserLocation/>
+      <MapWithUserLocation/> */}
     </>
   );
 };
